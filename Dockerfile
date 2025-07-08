@@ -1,4 +1,20 @@
-FROM dustynv/build-essential:r35.4.1
+#FROM dustynv/build-essential:r35.4.1
+
+FROM nvcr.io/nvidia/l4t-base:r36.2.0
+
+# Install Python and pip
+RUN apt-get update && \
+    apt-get install -y python3 python3-pip git && \
+    rm -rf /var/lib/apt/lists/*
+
+# Optional: set pip to point to python3-pip
+RUN ln -s /usr/bin/python3 /usr/bin/python && \
+    ln -s /usr/bin/pip3 /usr/bin/pip
+
+# Create app user and directories
+RUN groupadd -r appuser && useradd --no-log-init -r -g appuser appuser
+RUN mkdir -p /home/appuser && chown -R appuser:appuser /home/appuser
+WORKDIR /app
 
 # C4ai version
 ARG C4AI_VER=0.6.0
