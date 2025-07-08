@@ -40,11 +40,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libasound2 libatspi2.0-0 redis-server supervisor \
     libopenblas-dev \
  && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN ln -s /usr/bin/python3 /usr/bin/python
 
 # ----------------------
 # 🧪 Python Setup
 # ----------------------
 RUN python3 -m pip install --upgrade pip setuptools wheel
+
 
 # ----------------------
 # 👤 Create Non-root User
