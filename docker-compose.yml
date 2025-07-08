@@ -15,10 +15,11 @@ x-base-config: &base-config
     - TOGETHER_API_KEY=${TOGETHER_API_KEY:-}
     - MISTRAL_API_KEY=${MISTRAL_API_KEY:-}
     - GEMINI_API_TOKEN=${GEMINI_API_TOKEN:-}
+    - OLLAMA_API_BASE=http://192.168.0.1:11434/v1
           # Optional overrides
-    LLM_PROVIDER: ollama
-    OLLAMA_BASE_URL: http://192.168.0.218:11434
-    LLM_MODEL: llama3.2:3b-8k
+    # LLM_PROVIDER: ollama
+    # OLLAMA_BASE_URL: http://192.168.0.218:11434
+    # LLM_MODEL: llama3.2:3b-8k
   volumes:
     - /dev/shm:/dev/shm  # Chromium performance
   deploy:
