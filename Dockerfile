@@ -1,6 +1,6 @@
 #FROM python:3.12-slim-bookworm AS build
 #FROM nvcr.io/nvidia/l4t-jetpack:r36.3.0
-FROM dustynv/cuda-python:r36.4.0-cu128-24.04
+FROM docker pull dustynv/python:r35.4.1
 # C4ai version
 ARG C4AI_VER=0.6.0
 ENV C4AI_VERSION=$C4AI_VER
