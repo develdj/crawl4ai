@@ -1,6 +1,6 @@
 #FROM python:3.12-slim-bookworm AS build
 #FROM nvcr.io/nvidia/l4t-jetpack:r36.3.0
-FROM nvcr.io/nvidia/l4t-base:r36.4.4
+FROM nvcr.io/nvidia/l4t-base:r36.4.0
 
 # C4ai version
 ARG C4AI_VER=0.6.0
