@@ -43,7 +43,7 @@ rate_limiting:
 security:
   enabled: false 
   jwt_enabled: false 
-  https_redirect: false
+  https_redirect: true
   trusted_hosts: ["*"]
   headers:
     x_content_type_options: "nosniff"
