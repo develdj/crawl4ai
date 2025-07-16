@@ -11,7 +11,7 @@ app:
 # Default LLM Configuration
 llm:
   #provider: "openai/gpt-4o-min"
-  provider: "ollama/llama3.2:3b-8k"
+  provider: "ollama/llama3.1:8b"
   api_key_env: ""
   # api_key: sk-...  # If you pass the API key directly then api_key_env will be ignored
 # LLM_MODEL=llama3.2:3b-8k
