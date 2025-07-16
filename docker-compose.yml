@@ -49,7 +49,7 @@ services:
       dockerfile: Dockerfile
       args:
         INSTALL_TYPE: ${INSTALL_TYPE:-default}
-        ENABLE_GPU: ${ENABLE_GPU:-false}
+        ENABLE_GPU: ${ENABLE_GPU:-true}
     
     # Inherit shared config
     <<: *base-config
