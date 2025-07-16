@@ -15,7 +15,7 @@ x-base-config: &base-config
     - TOGETHER_API_KEY=${TOGETHER_API_KEY:-}
     - MISTRAL_API_KEY=${MISTRAL_API_KEY:-}
     - GEMINI_API_TOKEN=${GEMINI_API_TOKEN:-}
-    - OLLAMA_API_BASE=http://192.168.1.81:11434/v1
+    - OLLAMA_API_BASE=http://192.168.1.81:11434
           # Optional overrides
     # LLM_PROVIDER: ollama
     # OLLAMA_BASE_URL: http://192.168.0.218:11434
