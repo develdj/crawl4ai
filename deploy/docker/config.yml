@@ -14,8 +14,8 @@ llm:
   provider: "ollama/llama3.1:8b"
   api_key_env: ""
   # api_key: sk-...  # If you pass the API key directly then api_key_env will be ignored
-# LLM_MODEL=llama3.2:3b-8k
-  # ur: http://192.168.1.81:11434
+  LLM_MODEL=llama3.1:8b
+  url: http://192.168.1.81:11434
 # Redis Configuration
 redis:
   host: "localhost"
