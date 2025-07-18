@@ -1,4 +1,5 @@
-FROM nvcr.io/nvidia/l4t-base:r36.2.0
+#FROM nvcr.io/nvidia/l4t-base:r36.2.0
+FROM dustynv/cuda-python:r36.4.0-cu128-24.04
 
 ARG C4AI_VER=0.6.0
 ARG APP_HOME=/app
