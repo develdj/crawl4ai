@@ -8,7 +8,7 @@ ARG GITHUB_BRANCH=main
 ARG USE_LOCAL=true
 ARG PYTHON_VERSION=3.10
 ARG INSTALL_TYPE=default
-ARG ENABLE_GPU=false
+ARG ENABLE_GPU=true
 ARG TARGETARCH=arm64
 
 ENV C4AI_VERSION=$C4AI_VER
@@ -65,8 +65,13 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Optional: for specific install types
 RUN if [ "$INSTALL_TYPE" = "all" ]; then \
-        pip install torch torchvision torchaudio \
-            scikit-learn nltk transformers tokenizers && \
+        pip install https://pypi.jetson-ai-lab.io/root/pypi/+f/a10/3b5d782af5bd1/torch-2.7.1-cp310-cp310-manylinux_2_28_aarch64.whl#sha256=a103b5d782af5bd119b81dbcc7ffc6fa09904c423ff8db397a1e6ea8fd71508f \
+        pip install https://pypi.jetson-ai-lab.io/root/pypi/+f/990/de4d657a41ed7/torchvision-0.22.1-cp310-cp310-manylinux_2_28_aarch64.whl#sha256=990de4d657a41ed71680cd8be2e98ebcab55371f30993dc9bd2e676441f7180e \
+        pip install https://pypi.jetson-ai-lab.io/root/pypi/+f/c08/9dbfc14c5f470/torchaudio-2.7.1-cp310-cp310-manylinux_2_28_aarch64.whl#sha256=c089dbfc14c5f47091b7bf3f6bf2bbac93b86619299d04d9c102f4ad53758990 \
+        pip install https://pypi.jetson-ai-lab.io/root/pypi/+f/b62/b76ad408a8214/scikit_learn-1.7.1-cp310-cp310-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl#sha256=b62b76ad408a821475b43b7bb90a9b1c9a4d8d125d505c2df0539f06d6e631b1 \
+        pip install https://pypi.jetson-ai-lab.io/root/pypi/+f/4fa/26829c5b00715/nltk-3.9.1-py3-none-any.whl#sha256=4fa26829c5b00715afe3061398a8989dc643b92ce7dd93fb4585a70930d168a1 \
+        pip install https://pypi.jetson-ai-lab.io/root/pypi/+f/5ab/a81c92095806b/transformers-4.53.3-py3-none-any.whl#sha256=5aba81c92095806b6baf12df35d756cf23b66c356975fb2a7fa9e536138d7c75 \
+        pip install https://pypi.jetson-ai-lab.io/root/pypi/+f/834/8601d6dda43a8/tokenizers-0.21.4.dev0-cp39-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl#sha256=8348601d6dda43a8878f48f07ef356070317f24c58984deb946c3789df99563c && \
         python -m nltk.downloader punkt stopwords ; \
     fi
 
@@ -86,7 +91,7 @@ RUN if [ "$INSTALL_TYPE" = "all" ]; then \
 # ----------------------
 # 🎭 Playwright Setup
 # ----------------------
-RUN pip install playwright && playwright install --with-deps
+RUN pip install https://pypi.jetson-ai-lab.io/root/pypi/+f/927/6c9c935fc062f/playwright-1.53.0-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl#sha256=9276c9c935fc062f51f4f5107e56420afd6d9a524348dc437793dc2e34c742e3 && https://pypi.jetson-ai-lab.io/root/pypi/+f/927/6c9c935fc062f/playwright-1.53.0-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl#sha256=9276c9c935fc062f51f4f5107e56420afd6d9a524348dc437793dc2e34c742e3 install --with-deps
 
 # Copy browser cache for non-root use
 RUN mkdir -p /home/appuser/.cache/ms-playwright && \
