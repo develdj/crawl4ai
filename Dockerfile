@@ -92,7 +92,8 @@ RUN if [ "$INSTALL_TYPE" = "all" ]; then \
 # 🎭 Playwright Setup
 # ----------------------
 #RUN pip install https://pypi.jetson-ai-lab.io/root/pypi/+f/927/6c9c935fc062f/playwright-1.53.0-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl#sha256=9276c9c935fc062f51f4f5107e56420afd6d9a524348dc437793dc2e34c742e3 && playwright install --with-deps
-RUN pip install playwright
+RUN pip install https://pypi.jetson-ai-lab.io/root/pypi/+f/13a/e206c55737e8e/playwright-1.54.0-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl#sha256=13ae206c55737e8e3eae51fb385d61c0312eeef31535643bb6232741b41b6fdc && playwright install --with-deps
+# RUN pip install playwright
 
 # Copy browser cache for non-root use
 RUN mkdir -p /home/appuser/.cache/ms-playwright && \
